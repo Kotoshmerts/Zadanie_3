@@ -1,4 +1,4 @@
-import socket
+iimport socket
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -8,13 +8,13 @@ http_запрос = "GET / HTTP/1.1\r\nHost: example.com\r\n\r\n"
 
 client_socket.send(http_запрос.encode())
 
-полный_ответ = b''
+otvet = b''
 
 while True:
-    порция = client_socket.recv(1024)
-    if not порция:
+    q = client_socket.recv(1024)
+    if not q:
         break
-    полный_ответ += порция
+    otvet += q
 
 client_socket.close()
-print(полный_ответ.decode())
+print(otvet.decode())
